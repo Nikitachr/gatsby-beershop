@@ -66,24 +66,13 @@ module.exports = {
             resolve: `gatsby-source-mock`,
             options: {
                 schema: {
-                    name: `{{name.firstName}} {{name.lastName}}`,
-                    company: `{{company.companyName}}`,
-                    balance: (faker) => faker.finance.amount() / 2,
-                    features: {
-                        accountType: (faker) =>
-                            faker.random.arrayElement(['Free', 'Premium']),
-                        creditCard: {
-                            isValid: (faker) => faker.datatype.boolean(),
-                            number: `{{finance.creditCardNumber}}`,
-                        },
-                        account: {
-                            iban: `{{finance.iban}}`,
-                            bic: `{{finance.bic}}`,
-                        },
-                    },
+                    productName: `{{commerce.productName}}`,
+                    price: `{{commerce.price}}`,
+                    product: `{{commerce.product}}`,
+                    productDescription: `{{commerce.productDescription}}`
                 },
                 count: 10,
-                type: `BankAccount`,
+                type: `product`,
                 seed: 123456,
                 locale: `de`,
             },

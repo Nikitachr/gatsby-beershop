@@ -26,7 +26,7 @@ const sidebar = {
 
 const menuVariants = {
     open: {
-        transition: { staggerChildren: 0.07, delayChildren: 0.2 }
+        transition: { staggerChildren: 0.07, delayChildren: 0.2, delay: 5 }
     },
     closed: {
         transition: { staggerChildren: 0.05, staggerDirection: -1 }
@@ -35,10 +35,12 @@ const menuVariants = {
 
 const menuItemVariants = {
     open: {
-        opacity: 1
+        opacity: 1,
+        y: 0
     },
     closed: {
-        opacity: 0
+        opacity: 0,
+        y: -10
     }
 };
 
