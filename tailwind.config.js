@@ -9,6 +9,9 @@ module.exports = {
       red: '#E55249',
       yellow: '#FFC839'
     },
+    minWidth: {
+      '300': '300px'
+    },
     extend: {
       inset: {
         'half': 'calc(50% - 24px)'

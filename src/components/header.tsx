@@ -4,7 +4,7 @@ import CartIco from 'assets/icons/cart.svg'
 
 const Header: FC<IBaseComponent> = ({ className = '' }) => {
     return (
-        <div className={`${className} p-6 flex items-center justify-between`}>
+        <div className={`${className} py-6 flex items-center justify-between`}>
             <h1 className="text-2xl font-bold">BEERSHOP</h1>
             <button>
                 <CartIco className="w-6"/>
