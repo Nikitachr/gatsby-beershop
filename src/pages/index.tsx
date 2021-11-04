@@ -22,7 +22,7 @@ const Index = () => {
         <>
             <SEO title='main'/>
             <Layout>
-                <Slider className="fixed left-0 top-56 w-auto">
+                <Slider className="w-full overflow-hidden">
                     <SliderProduct key={1} productName={product.product.productName} price={product.product.price}/>
                     <SliderProduct key={2} productName={product.product.productName} price={product.product.price}/>
                     <SliderProduct key={3} productName={product.product.productName} price={product.product.price}/>
