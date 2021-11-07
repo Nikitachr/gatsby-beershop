@@ -10,9 +10,9 @@ const Layout: FC = ({ children }) => {
                 <Menu/>
             </Portal>
             <Header className="max-w-screen-xl mx-auto px-6" />
-            <>
+            <div>
                 {children}
-            </>
+            </div>
         </div>
     );
 };
