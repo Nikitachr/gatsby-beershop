@@ -4,6 +4,7 @@ import IBaseComponent from 'interfaces/base-component.interface';
 import { StaticImage } from 'gatsby-plugin-image';
 import { motion, AnimatePresence } from 'framer-motion'
 import useHover from 'hooks/use-hover';
+import AddButton from 'components/add-button';
 
 const imageHover = {
     hover: {
@@ -25,16 +26,11 @@ const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', productN
                     transition={{ duration: 2 }}
                     initial="rest" whileHover="hover" animate="rest">
             <motion.div variants={imageHover}>
-                <StaticImage alt="beer" src="../assets/imgs/beer.png"/>
+                <StaticImage className="pointer-events-none" alt="beer" src="../assets/imgs/beer.png"/>
             </motion.div>
             <AnimatePresence>
                 {isHover &&
-                    <motion.button className="w-12 h-12 z-50 -mt-12 rounded-full bg-blue absolute top-56"
-                                   whileHover={{ scale: 1.1 }}
-                                   whileTap={{ scale: 0.9 }}
-                                   initial={{ scale: 0, y: 20 }}
-                                   animate={{ scale: 1, y: 0 }}
-                                   exit={{ scale: 0, y: 20 }}>+</motion.button>
+                <AddButton className="-mt-12 absolute top-56"/>
                 }
             </AnimatePresence>
             <AnimatePresence>

@@ -1,28 +1,55 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    colors: {
-      blue: '#3B7FE8',
-      green: '#1BCF92',
-      secondary: '#F6F4F1',
-      red: '#E55249',
-      yellow: '#FFC839'
+    purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+
+        minWidth: {
+            '300': '300px'
+        },
+        boxShadow: {
+            secondary: '0px -12px 30px 20px #F5F3F0',
+            innerSecondary: 'inset 0px 0px 8px rgba(192, 191, 189, 0.5);'
+        },
+
+        extend: {
+            colors: {
+                blue: '#3B7FE8',
+                green: '#1BCF92',
+                secondary: '#F5F3F0',
+                red: '#E55249',
+                yellow: '#FFC839'
+            },
+
+            margin: {
+                '512': '512px'
+            },
+            inset: {
+                'half': 'calc(50% - 24px)'
+            },
+            width: {
+                'fit': 'fit-content'
+            },
+            height: {
+                '500': '500px'
+            },
+            gridTemplateColumns: {
+                '4': 'repeat(4, auto)',
+                '3': 'repeat(3, auto)',
+                '2': 'repeat(2, auto)',
+                '1': 'repeat(1, auto)'
+            },
+            left: {
+                'product-card-btn': 'calc(50% - 24px)'
+            },
+            top: {
+                'product-card-btn': 'calc(50% - 24px)'
+            }
+        },
     },
-    minWidth: {
-      '300': '300px'
+    variants: {
+        extend: {
+            boxShadow: ['hover'],
+        },
     },
-    extend: {
-      inset: {
-        'half': 'calc(50% - 24px)'
-      },
-      width: {
-        'fit': 'fit-content'
-      }
-    },
-  },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+    plugins: [],
 }

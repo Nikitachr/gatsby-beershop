@@ -58,7 +58,7 @@ const Menu: FC = () => {
 
                 <motion.nav
                     variants={sidebar}
-                    className="fixed left-0 top-0 bg-secondary w-screen h-screen">
+                    className="fixed left-0 top-0 bg-secondary w-full h-screen">
                     <motion.ul variants={menuVariants} className="mx-auto w-fit mt-24 grid gap-2 text-xl font-bold">
                         <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">Home</motion.li>
                         <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">Cart</motion.li>

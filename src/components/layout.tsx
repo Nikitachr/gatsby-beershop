@@ -5,11 +5,11 @@ import Menu from 'components/menu';
 
 const Layout: FC = ({ children }) => {
     return (
-        <div className="max-w-screen-xl mx-auto px-6">
+        <div>
             <Portal>
                 <Menu/>
             </Portal>
-            <Header/>
+            <Header className="max-w-screen-xl mx-auto px-6" />
             {children}
         </div>
     );
