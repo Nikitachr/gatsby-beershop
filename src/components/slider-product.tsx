@@ -1,7 +1,7 @@
 import React, { FC, Ref } from 'react';
 import { IProduct } from 'interfaces/product.interface';
 import IBaseComponent from 'interfaces/base-component.interface';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import { motion, AnimatePresence } from 'framer-motion'
 import useHover from 'hooks/use-hover';
 import AddButton from 'components/add-button';
@@ -17,8 +17,9 @@ const imageHover = {
     }
 }
 
-const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', productName, price }) => {
+const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', title, price, image }) => {
     const [ref, isHover] = useHover();
+    const newImage = getImage(image.gatsbyImageData);
 
     return (
         <motion.div ref={ref as Ref<HTMLDivElement>}
@@ -26,7 +27,7 @@ const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', productN
                     transition={{ duration: 2 }}
                     initial="rest" whileHover="hover" animate="rest">
             <motion.div variants={imageHover}>
-                <StaticImage className="pointer-events-none" alt="beer" src="../assets/imgs/beer.png"/>
+                <GatsbyImage image={newImage} className="pointer-events-none h-72 w-72" alt="beer"/>
             </motion.div>
             <AnimatePresence>
                 {isHover &&
@@ -39,7 +40,7 @@ const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', productN
                             animate={{ scale: 1, y: 0, opacity: 1 }}
                             exit={{ scale: 0.5, y: 0, opacity: 0 }}
                             className="flex flex-col items-center font-bold">
-                    <h2>{productName}</h2>
+                    <h2>{title}</h2>
                     <span className="block text-blue">{price}</span>
                 </motion.div>}
             </AnimatePresence>
