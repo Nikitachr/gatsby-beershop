@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import Header from 'components/header';
-import Portal from 'components/portal'
-import Menu from 'components/menu';
+import Header from 'components/layout/header';
+import Portal from 'components/shared/portal'
+import Menu from 'components/layout/menu';
 
 const Layout: FC = ({ children }) => {
     return (

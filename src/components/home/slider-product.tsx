@@ -4,7 +4,7 @@ import IBaseComponent from 'interfaces/base-component.interface';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import { motion, AnimatePresence } from 'framer-motion'
 import useHover from 'hooks/use-hover';
-import AddButton from 'components/add-button';
+import AddButton from 'components/shared/add-button';
 
 const imageHover = {
     hover: {
@@ -41,7 +41,7 @@ const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', title, p
                             exit={{ scale: 0.5, y: 0, opacity: 0 }}
                             className="flex flex-col items-center font-bold">
                     <h2>{title}</h2>
-                    <span className="block text-blue">{price}</span>
+                    <span className="block text-blue">{`$${price.toFixed(2)}`}</span>
                 </motion.div>}
             </AnimatePresence>
         </motion.div>

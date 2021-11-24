@@ -36,7 +36,8 @@ module.exports = {
                 '4': 'repeat(4, auto)',
                 '3': 'repeat(3, auto)',
                 '2': 'repeat(2, auto)',
-                '1': 'repeat(1, auto)'
+                '1': 'repeat(1, auto)',
+                '3-pr': 'repeat(3, minmax(0, 1fr))'
             },
             left: {
                 'product-card-btn': 'calc(50% - 24px)'

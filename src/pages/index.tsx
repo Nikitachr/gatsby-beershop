@@ -1,11 +1,11 @@
 import React from 'react';
-import SEO from 'components/seo';
-import Layout from 'components/layout';
+import SEO from 'components/shared/seo';
+import Layout from 'components/layout/layout';
 import { graphql, useStaticQuery } from 'gatsby';
-import SliderProduct from 'components/slider-product';
+import SliderProduct from 'components/home/slider-product';
 import { IProduct } from 'interfaces/product.interface';
-import Slider from 'components/slider';
-import ProductCard from 'components/product-card';
+import Slider from 'components/home/slider';
+import ProductCard from 'components/home/product-card';
 
 interface IQueryData {
     allContentfulProducts: {
@@ -21,16 +21,11 @@ const Index = () => {
             allContentfulProducts {
                 edges {
                     node {
-                        alcohol
-                        description {
-                            description
-                        }
                         id
                         image {
                             gatsbyImageData
                         }
                         price
-                        size
                         title
                     }
                 }
@@ -39,16 +34,11 @@ const Index = () => {
     `);
     const products = query.allContentfulProducts.edges;
 
-
     return (
         <>
             <SEO title="main"/>
             <Layout>
                 <Slider className="w-full pt-14 pl-12 h-500 overflow-hidden">
-                    {products.map(({ node }) => <SliderProduct key={node.id} {...node}/>)}
-                    {products.map(({ node }) => <SliderProduct key={node.id} {...node}/>)}
-                    {products.map(({ node }) => <SliderProduct key={node.id} {...node}/>)}
-                    {products.map(({ node }) => <SliderProduct key={node.id} {...node}/>)}
                     {products.map(({ node }) => <SliderProduct key={node.id} {...node}/>)}
                 </Slider>
                 <section className="mt-12 bg-secondary shadow-secondary">

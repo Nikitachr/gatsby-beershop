@@ -1,7 +1,7 @@
 import React from 'react'
 import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
-import MenuToggle from 'components/menu-toggle';
+import MenuToggle from 'components/layout/menu-toggle';
 
 const sidebar = {
     open: () => ({
