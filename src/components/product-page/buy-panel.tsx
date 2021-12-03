@@ -1,14 +1,19 @@
 import React, { FC } from 'react';
 
 import { IProduct } from 'interfaces/product.interface';
+import BuyCounter from "./buy-counter";
+import IBaseComponent from "../../interfaces/base-component.interface";
+import useAddToCart from "../../hooks/use-add-to-cart";
 
 type TBuyPanelProps = {
-    product: Pick<IProduct, 'title' | 'price' | 'alcohol' | 'size'>;
+    product: IProduct;
 };
 
-const BuyPanel: FC<TBuyPanelProps> = ({ product }) => {
+const BuyPanel: FC<IBaseComponent & TBuyPanelProps> = ({ product, className = '' }) => {
+    const addToCart = useAddToCart(product);
+
     return (
-        <div>
+        <div className={`${className} `}>
             <div className="pb-4 border-b-2 border-secondary">
                 <h1 className="font-bold text-2xl">{product.title}</h1>
                 <span className="font-bold text-blue text-2xl">{`$${product.price.toFixed(2)}`}</span>
@@ -24,6 +29,7 @@ const BuyPanel: FC<TBuyPanelProps> = ({ product }) => {
                         <span className="">{`${product.alcohol}%`}</span>
                     </div>
                 </div>
+                <BuyCounter addToCart={addToCart} className="mt-4"/>
             </div>
         </div>
     );

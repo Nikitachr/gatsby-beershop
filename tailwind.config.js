@@ -30,13 +30,15 @@ module.exports = {
                 'fit': 'fit-content'
             },
             height: {
-                '500': '500px'
+                '500': '500px',
+                '17': '17px',
+                '14': '14px'
             },
             gridTemplateColumns: {
-                '4': 'repeat(4, auto)',
-                '3': 'repeat(3, auto)',
-                '2': 'repeat(2, auto)',
-                '1': 'repeat(1, auto)',
+                '4-auto': 'repeat(4, auto)',
+                '3-auto': 'repeat(3, auto)',
+                '2-auto': 'repeat(2, auto)',
+                '1-auto': 'repeat(1, auto)',
                 '3-pr': 'repeat(3, minmax(0, 1fr))'
             },
             left: {

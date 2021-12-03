@@ -45,7 +45,7 @@ const Index = () => {
                     <div className="max-w-screen-xl mx-auto px-6">
                         <h1 className="font-bold text-lg">BESTSELLERS</h1>
                         <div
-                            className="grid py-4 gap-y-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:justify-between justify-items-center sm:justify-items-start ">
+                            className="grid py-4 gap-y-4 grid-cols-1-auto sm:grid-cols-2-auto md:grid-cols-3-auto lg:grid-cols-4-auto sm:justify-between justify-items-center sm:justify-items-start ">
                             {products.map(({ node }) => <ProductCard {...node}/>)}
                         </div>
                     </div>

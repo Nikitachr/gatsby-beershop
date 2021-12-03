@@ -2,6 +2,7 @@ import React from 'react'
 import { FC, useState } from 'react';
 import { motion } from 'framer-motion';
 import MenuToggle from 'components/layout/menu-toggle';
+import {Link} from "gatsby";
 
 const sidebar = {
     open: () => ({
@@ -60,7 +61,9 @@ const Menu: FC = () => {
                     variants={sidebar}
                     className="fixed left-0 top-0 bg-secondary w-full h-screen">
                     <motion.ul variants={menuVariants} className="mx-auto w-fit mt-24 grid gap-2 text-xl font-bold">
-                        <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">Home</motion.li>
+                        <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">
+                            <Link to="/">Home</Link>
+                        </motion.li>
                         <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">Cart</motion.li>
                         <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">Cart</motion.li>
                         <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">Cart</motion.li>

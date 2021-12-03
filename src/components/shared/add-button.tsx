@@ -1,10 +1,15 @@
-import React, { FC } from 'react';
+import React, {FC, memo} from 'react';
 import IBaseComponent from 'interfaces/base-component.interface';
 import { motion } from 'framer-motion'
 
-const AddButton: FC<IBaseComponent> = ({ className = '' }) => {
+type TAddButtonProps = {
+    onClick: () => void;
+}
+
+const AddButton: FC<IBaseComponent & TAddButtonProps> = ({ className = '', onClick }) => {
     return (
         <motion.button className={`${className} w-12 h-12 z-50 rounded-full bg-blue text-white text-xl text-white`}
+                       onClick={onClick}
                        whileHover={{ scale: 1.1 }}
                        whileTap={{ scale: 0.9 }}
                        initial={{ scale: 0, y: 20 }}
@@ -13,4 +18,4 @@ const AddButton: FC<IBaseComponent> = ({ className = '' }) => {
     );
 };
 
-export default AddButton;
+export default memo(AddButton);
