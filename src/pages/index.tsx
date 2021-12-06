@@ -1,7 +1,7 @@
 import React from 'react';
 import SEO from 'components/shared/seo';
 import Layout from 'components/layout/layout';
-import { graphql, useStaticQuery } from 'gatsby';
+import {graphql, Link, useStaticQuery} from 'gatsby';
 import SliderProduct from 'components/home/slider-product';
 import { IProduct } from 'interfaces/product.interface';
 import Slider from 'components/home/slider';
@@ -38,15 +38,15 @@ const Index = () => {
         <>
             <SEO title="main"/>
             <Layout>
-                <Slider className="w-full pt-14 pl-12 h-500 overflow-hidden">
-                    {products.map(({ node }) => <SliderProduct key={node.id} {...node}/>)}
+                <Slider className="w-full pt-14 pl-12 h-500 overflow-y-scroll no-scrollbar">
+                    {products.map(({ node }) => <Link to={`product/${node.id}`} className="no-drag"><SliderProduct key={node.id} {...node}/></Link>)}
                 </Slider>
                 <section className="mt-12 bg-secondary shadow-secondary">
                     <div className="max-w-screen-xl mx-auto px-6">
                         <h1 className="font-bold text-lg">BESTSELLERS</h1>
                         <div
                             className="grid py-4 gap-y-4 grid-cols-1-auto sm:grid-cols-2-auto md:grid-cols-3-auto lg:grid-cols-4-auto sm:justify-between justify-items-center sm:justify-items-start ">
-                            {products.map(({ node }) => <ProductCard {...node}/>)}
+                            {products.map(({ node }) => <Link to={`product/${node.id}`}><ProductCard {...node}/></Link>)}
                         </div>
                     </div>
                 </section>

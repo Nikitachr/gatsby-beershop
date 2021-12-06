@@ -1,4 +1,4 @@
-import React, {FC, Ref, useCallback} from 'react';
+import React, { FC, Ref } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
@@ -34,7 +34,7 @@ const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', ...produ
             </motion.div>
             <AnimatePresence>
                 {isHover &&
-                <AddButton onClick={() => addToCart(1)} className="-mt-12 absolute top-56"/>
+                    <AddButton onClick={() => addToCart(1)} className="-mt-12 absolute top-56"/>
                 }
             </AnimatePresence>
             <AnimatePresence>

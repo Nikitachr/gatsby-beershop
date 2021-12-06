@@ -1,4 +1,4 @@
-import React, {FC, memo} from 'react';
+import React, {FC, memo, SyntheticEvent} from 'react';
 import IBaseComponent from 'interfaces/base-component.interface';
 import { motion } from 'framer-motion'
 
@@ -7,9 +7,16 @@ type TAddButtonProps = {
 }
 
 const AddButton: FC<IBaseComponent & TAddButtonProps> = ({ className = '', onClick }) => {
+
+    const addButtonHandler = (e: SyntheticEvent): void => {
+        e.preventDefault();
+        e.stopPropagation();
+        onClick();
+    }
+
     return (
         <motion.button className={`${className} w-12 h-12 z-50 rounded-full bg-blue text-white text-xl text-white`}
-                       onClick={onClick}
+                       onClick={addButtonHandler}
                        whileHover={{ scale: 1.1 }}
                        whileTap={{ scale: 0.9 }}
                        initial={{ scale: 0, y: 20 }}

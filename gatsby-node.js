@@ -2,12 +2,12 @@ exports.createPages = async function ({ actions, graphql }) {
     const { data } = await graphql(`
     query {
         allContentfulProducts {
-    edges {
-      node {
-        id
-      }
-    }
-  }
+            edges {
+                node {
+                    id
+                }
+            }
+        }
     }
   `)
     data.allContentfulProducts.edges.forEach(edge => {

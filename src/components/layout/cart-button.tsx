@@ -5,6 +5,14 @@ import CartIco from "../../assets/icons/cart.svg";
 import useHover from "../../hooks/use-hover";
 import CartItem from "../shared/cart-item.ts";
 import useCartState from "../../hooks/use-cart-state";
+import {ICartProduct} from "../../store/state";
+import {Link} from "gatsby";
+
+const productsToPrice = (products: ICartProduct[]): number => {
+    let total = 0;
+    products.forEach(el => total += el.product.price * el.amount);
+    return total;
+}
 
 const CartButton = () => {
     const [products, increment, decrement, remove] = useCartState();
@@ -13,10 +21,12 @@ const CartButton = () => {
     return (
         <motion.div ref={ref} className="relative bg-white" whileHover="hover" animate="unhover" exit="unhover">
             <button>
-                <CartIco className="w-6"/>
+                <Link to="/cart">
+                    <CartIco className="w-6"/>
+                </Link>
             </button>
             <AnimatePresence>
-                {isHover &&
+                {isHover && products.length &&
                     <motion.div className="absolute overflow-hidden z-10 right-0 top-6 pt-4 "
                                 exit={{height: 0}}
                                 animate={{
@@ -42,11 +52,25 @@ const CartButton = () => {
                                     </motion.div>
                                 )}
                             </AnimatePresence>
+                            <div className="grid mt-5 px-3 gap-3">
+                                <div className="flex justify-between">
+                                    <span className="font-bold block">Total:</span>
+                                    <span className="font-bold block">{`$${productsToPrice(products).toFixed(2)}`}</span>
+                                </div>
+                                <div className="flex justify-center gap-4">
+                                    <button className="bg-blue rounded-full text-white font-semi-bold text-xl px-4 py-2">Checkout</button>
+                                        <Link to="/cart">
+                                            <button className="rounded-full border-2 border-black font-semi-bold text-xl px-4 py-2">
+                                                Go to cart
+                                            </button>
+                                        </Link>
+                                </div>
+                            </div>
                         </div>
+
                     </motion.div>
                 }
             </AnimatePresence>
-
         </motion.div>
     );
 };
