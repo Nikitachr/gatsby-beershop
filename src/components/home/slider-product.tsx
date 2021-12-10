@@ -26,6 +26,7 @@ const SliderProduct: FC<IProduct & IBaseComponent> = ({ className = '', ...produ
 
     return (
         <motion.div ref={ref as Ref<HTMLDivElement>}
+
                     className={`${className} min-w-300 flex flex-col items-center relative`}
                     transition={{ duration: 2 }}
                     initial="rest" whileHover="hover" animate="rest">
