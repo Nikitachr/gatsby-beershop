@@ -11,8 +11,7 @@ import DetailsPanel from "../components/product-page/details-panel";
 type TProductPageProps = { data: { product: IProduct } };
 
 const ProductPage: FC<TProductPageProps> = ({ data: { product } }) => {
-    console.log(product)
-    const gatsbyImage = getImage(product.image.gatsbyImageData);
+    const gatsbyImage = getImage(product?.image?.gatsbyImageData);
 
     return (
         <>
