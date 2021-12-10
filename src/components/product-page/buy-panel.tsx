@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useCallback } from 'react';
 
 import { IProduct } from 'interfaces/product.interface';
 import BuyCounter from "./buy-counter";
@@ -10,7 +10,11 @@ type TBuyPanelProps = {
 };
 
 const BuyPanel: FC<IBaseComponent & TBuyPanelProps> = ({ product, className = '' }) => {
-    const addToCart = useAddToCart(product);
+    const addToCart = useAddToCart();
+
+    const counterHandler = useCallback((amount: number): void => {
+        addToCart(product, amount);
+    }, []);
 
     return (
         <div className={`${className} `}>
@@ -29,7 +33,7 @@ const BuyPanel: FC<IBaseComponent & TBuyPanelProps> = ({ product, className = ''
                         <span className="">{`${product.alcohol}%`}</span>
                     </div>
                 </div>
-                <BuyCounter addToCart={addToCart} className="mt-4"/>
+                <BuyCounter addToCart={counterHandler} className="mt-4"/>
             </div>
         </div>
     );

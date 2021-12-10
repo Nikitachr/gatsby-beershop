@@ -1,12 +1,12 @@
-import {cartState} from "../store/state";
-import {IProduct} from "../interfaces/product.interface";
-import {useRecoilState} from "recoil";
-import {useCallback} from "react";
+import { cartState } from 'store/state';
+import { useRecoilState } from "recoil";
+import { useCallback } from "react";
+import { IProduct } from 'interfaces/product.interface';
 
-export default function useAddToCart(product: IProduct): (amount: number) => void {
-    const [products, setProducts] = useRecoilState(cartState);
+export default function useAddToCart(): (product: IProduct, amount: number) => void {
+    const [_, setProducts] = useRecoilState(cartState);
 
-    const addToCart = useCallback((amount = 1) => {
+    const addToCart = useCallback((product, amount = 1) => {
         setProducts(prevState => {
             const index = prevState.map(el => el.product).findIndex(el => el.id === product.id);
             if (index === -1) {

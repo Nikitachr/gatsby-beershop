@@ -20,13 +20,13 @@ const Counter: FC<TCounterProps> = ({counterChange}) => {
     return (
         <div className="px-3 py-2 border-black border rounded-full w-24 flex items-center justify-between">
             <ButtonAnimation className="h-17">
-                <button onClick={decrement}>
+                <button aria-label="decrement amount" onClick={decrement}>
                     <ArrowLeftIco/>
                 </button>
             </ButtonAnimation>
             <span className="font-bold">{amount}</span>
             <ButtonAnimation className="h-17">
-                <button onClick={increment}>
+                <button aria-label="increase amount" onClick={increment}>
                     <ArrowRightIco/>
                 </button>
             </ButtonAnimation>

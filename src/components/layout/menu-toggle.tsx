@@ -13,7 +13,7 @@ const Path: FC = (props) => (
 
 const MenuToggle: FC<{ toggle: () => void }> = ({ toggle }) => {
     return (
-        <button onClick={toggle}
+        <button aria-label="menu" onClick={toggle}
                 className="fixed z-10 left-half top-8 rounded-full outline-none bg-secondary w-12 h-12 flex items-center justify-center">
             <svg width="24" height="24" viewBox="0 0 24 24">
                 <Path

@@ -1,4 +1,4 @@
-import React, {FC, useCallback, useState} from 'react';
+import React, { FC, memo, useCallback, useState } from 'react';
 
 import Counter from "./counter";
 import IBaseComponent from "../../interfaces/base-component.interface";
@@ -21,9 +21,9 @@ const BuyCounter: FC<IBaseComponent & TBuyCounterProps> = ({ className = '', add
     return (
         <div className={`${className} flex gap-3`}>
             <Counter counterChange={counterChange}/>
-            <button onClick={addToCartHandler} className="rounded-full bg-blue py-2 px-4 text-white">Add to cart</button>
+            <button aria-label="Add to cart" onClick={addToCartHandler} className="rounded-full bg-blue py-2 px-4 text-white">Add to cart</button>
         </div>
     );
 };
 
-export default BuyCounter;
+export default memo(BuyCounter);

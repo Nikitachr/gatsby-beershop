@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import IBaseComponent from "../../interfaces/base-component.interface";
 import { ICartProduct } from 'store/state';
-import CartCounter from "./cart-counter";
+import CartCounter from 'components/shared/cart-counter';
 
 type TCartItemProps = {
     increment: (id: string) => void;
@@ -11,7 +11,7 @@ type TCartItemProps = {
     remove: (id: string) => void;
 }
 
-const CartItem: FC<IBaseComponent & ICartProduct & TCartItemProps> = ({ className = '', product, amount, increment, decrement, remove }) => {
+const CartPageItem: FC<IBaseComponent & ICartProduct & TCartItemProps> = ({ className = '', product, amount, increment, decrement, remove }) => {
     const gatsbyImage = getImage(product.image.gatsbyImageData);
 
     return (
@@ -30,4 +30,4 @@ const CartItem: FC<IBaseComponent & ICartProduct & TCartItemProps> = ({ classNam
     );
 };
 
-export default CartItem;
+export default CartPageItem;

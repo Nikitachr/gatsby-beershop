@@ -21,19 +21,19 @@ const CartCounter: FC<IBaseComponent & TCartCounterProps> = ({className = '', am
             </div>
             <div className="flex items-center flex-col justify-center gap-4">
                 <ButtonAnimation className="h-14 flex">
-                    <button onClick={increment}>
+                    <button aria-label="increment amount" onClick={increment}>
                         <ArrowTopIco/>
                     </button>
                 </ButtonAnimation>
                 {amount === 1 ?
                     <ButtonAnimation className="h-14 flex">
-                        <button onClick={remove}>
+                        <button aria-label="remove product" onClick={remove}>
                             <RemoveIco/>
                         </button>
                     </ButtonAnimation>
                      :
                     <ButtonAnimation className="h-14 flex">
-                        <button onClick={decrement}>
+                        <button aria-label="decrement amount" onClick={decrement}>
                             <ArrowDownIco/>
                         </button>
                     </ButtonAnimation>
