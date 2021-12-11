@@ -4,6 +4,7 @@ import { IProduct } from 'interfaces/product.interface';
 import BuyCounter from "./buy-counter";
 import IBaseComponent from "../../interfaces/base-component.interface";
 import useAddToCart from "../../hooks/use-add-to-cart";
+import priceFormatter from 'utils/price-format';
 
 type TBuyPanelProps = {
     product: IProduct;
@@ -20,7 +21,7 @@ const BuyPanel: FC<IBaseComponent & TBuyPanelProps> = ({ product, className = ''
         <div className={`${className} `}>
             <div className="pb-4 border-b-2 border-secondary">
                 <h1 className="font-bold text-2xl">{product.title}</h1>
-                <span className="font-bold text-blue text-2xl">{`$${product.price.toFixed(2)}`}</span>
+                <span className="font-bold text-blue text-2xl">{priceFormatter(product.price)}</span>
             </div>
             <div className="pt-4">
                 <div className="flex items-center gap-10">

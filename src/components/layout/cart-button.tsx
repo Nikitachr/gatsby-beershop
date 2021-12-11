@@ -1,18 +1,14 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'gatsby';
 
 import CartIco from '../../assets/icons/cart.svg';
 import useHover from '../../hooks/use-hover';
 import CartItem from '../shared/cart-item.ts';
 import useCartState from '../../hooks/use-cart-state';
-import { ICartProduct } from 'store/state';
-import { Link } from 'gatsby';
+import calculateTotalPrice from 'utils/total-price';
+import priceFormatter from 'utils/price-format';
 
-const productsToPrice = (products: ICartProduct[]): number => {
-    let total = 0;
-    products.forEach(el => total += el.product.price * el.amount);
-    return total;
-}
 
 const CartButton = () => {
     const [products, increment, decrement, remove] = useCartState();
@@ -20,7 +16,7 @@ const CartButton = () => {
 
     return (
         <motion.div ref={ref} className="relative bg-white" whileHover="hover" animate="unhover" exit="unhover">
-            <button>
+            <button aria-label="cart">
                 <Link to="/cart">
                     <CartIco className="w-6"/>
                 </Link>
@@ -34,7 +30,7 @@ const CartButton = () => {
                                 transition: { staggerChildren: 5, delayChildren: 5 }
                             }}
                             initial={{ height: 0 }}>
-                    <div className="border-2 px-2 py-4 border-secondary w-96 bg-white rounded-xl">
+                    <div className="border-2 px-2 py-4 border-secondary w-96 bg-white rounded-3xl">
                         <AnimatePresence>
                             {products?.map((el, i) =>
                                 <motion.div
@@ -55,7 +51,7 @@ const CartButton = () => {
                         <div className="grid mt-5 px-3 gap-3">
                             <div className="flex justify-between">
                                 <span className="font-bold block">Total:</span>
-                                <span className="font-bold block">{`$${productsToPrice(products).toFixed(2)}`}</span>
+                                <span className="font-bold block">{priceFormatter(calculateTotalPrice(products))}</span>
                             </div>
                             <div className="flex justify-center gap-4">
                                 <button aria-label="checkout"

@@ -65,7 +65,7 @@ const Menu: FC = () => {
                             <Link to="/">Home</Link>
                         </motion.li>
                         <motion.li variants={menuItemVariants} className="hover:text-green cursor-pointer">
-                            <Link to="cart">Cart</Link>
+                            <Link to="/cart">Cart</Link>
                         </motion.li>
                     </motion.ul>
                 </motion.nav>

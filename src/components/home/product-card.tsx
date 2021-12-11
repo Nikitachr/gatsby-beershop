@@ -7,6 +7,7 @@ import IBaseComponent from 'interfaces/base-component.interface';
 import AddButton from 'components/shared/add-button';
 import useHover from "../../hooks/use-hover";
 import { Link } from 'gatsby';
+import priceFormatter from 'utils/price-format';
 
 export type TAddToCard = { addToCard: (product: IProduct, amount: number) => void; }
 
@@ -16,10 +17,10 @@ const ProductCard: FC<IProduct & IBaseComponent & TAddToCard> = ({ className = '
 
     return (
         <Link to={`product/${product.id}`}>
-            <div ref={ref as LegacyRef<HTMLDivElement>} className="relative p-3 hover:shadow-innerSecondary transition duration-500 rounded-xl w-fit text-center">
+            <div ref={ref as LegacyRef<HTMLDivElement>} className="relative p-3 hover:shadow-innerSecondary transition duration-500 rounded-3xl w-fit text-center">
                 {newImage && <GatsbyImage image={newImage} objectFit="contain" className="pointer-events-none h-56 w-56" alt="beer"/>}
                 <h2 className="font-bold text-md mt-4 w-56">{product.title}</h2>
-                <span className="font-bold text-blue text-md">{`$${product.price.toFixed(2)}`}</span>
+                <span className="font-bold text-blue text-md">{priceFormatter(product.price)}</span>
                 <AnimatePresence>
                     {isHover && <AddButton onClick={() => addToCard(product, 1)} className="absolute inset-half"/>}
                 </AnimatePresence>

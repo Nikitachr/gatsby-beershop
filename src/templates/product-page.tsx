@@ -20,7 +20,7 @@ const ProductPage: FC<TProductPageProps> = ({ data: { product } }) => {
                 <div className="max-w-screen-xl mx-auto px-6 pt-11">
                     <div className="grid grid-cols-1 md:grid-cols-3-pr gap-x-5 gap-y-10 items-center">
                         <Description className="order-3 md:order-1" description={product.description.description}/>
-                        <GatsbyImage className="order-1 md:order-2" image={gatsbyImage} objectFit="contain" alt={product.title}/>
+                        {gatsbyImage && <GatsbyImage className="order-1 md:order-2" image={gatsbyImage} objectFit="contain" alt={product.title}/>}
                         <BuyPanel className="order-2 md:order2" product={product}/>
                     </div>
                     <DetailsPanel className="mt-12" {...product}/>

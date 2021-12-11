@@ -58,32 +58,6 @@ module.exports = {
                 path: "./src/pages/",
             },
             __key: "pages",
-        },
-        {
-            resolve: `gatsby-source-faker`,
-            // derive schema from faker's options
-            options: {
-                schema: {
-                    name: ["firstName", "lastName"],
-                },
-                count: 3, // how many fake objects you need
-                type: "NameData", // Name of the graphql query node
-            },
-        },
-        {
-            resolve: `gatsby-source-mock`,
-            options: {
-                schema: {
-                    productName: `{{commerce.productName}}`,
-                    price: `{{commerce.price}}`,
-                    product: `{{commerce.product}}`,
-                    productDescription: `{{commerce.productDescription}}`
-                },
-                count: 10,
-                type: `product`,
-                seed: 123456,
-                locale: `de`,
-            },
-        },
+        }
     ],
 };

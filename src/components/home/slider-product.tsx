@@ -8,6 +8,7 @@ import useHover from 'hooks/use-hover';
 import AddButton from 'components/shared/add-button';
 import { TAddToCard } from 'components/home/product-card';
 import { Link } from 'gatsby';
+import priceFormatter from 'utils/price-format';
 
 const imageHover = {
     hover: {
@@ -46,7 +47,7 @@ const SliderProduct: FC<IProduct & IBaseComponent & TAddToCard> = ({ className =
                                 exit={{ scale: 0.5, y: 0, opacity: 0 }}
                                 className="flex flex-col items-center font-bold">
                         <h2>{product.title}</h2>
-                        <span className="block text-blue">{`$${product.price.toFixed(2)}`}</span>
+                        <span className="block text-blue">{priceFormatter(product.price)}</span>
                     </motion.div>}
                 </AnimatePresence>
             </motion.div>
