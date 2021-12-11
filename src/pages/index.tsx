@@ -1,7 +1,8 @@
 import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+
 import SEO from 'components/shared/seo';
 import Layout from 'components/layout/layout';
-import {graphql, Link, useStaticQuery} from 'gatsby';
 import SliderProduct from 'components/home/slider-product';
 import { IProduct } from 'interfaces/product.interface';
 import Slider from 'components/home/slider';

@@ -21,7 +21,7 @@ const BuyCounter: FC<IBaseComponent & TBuyCounterProps> = ({ className = '', add
     return (
         <div className={`${className} flex gap-3`}>
             <Counter counterChange={counterChange}/>
-            <button aria-label="Add to cart" onClick={addToCartHandler} className="rounded-full bg-blue py-2 px-4 text-white">Add to cart</button>
+            <button aria-label="Add to cart" onClick={addToCartHandler} className="rounded-full bg-blue hover:bg-blue-light py-2 px-4 text-white">Add to cart</button>
         </div>
     );
 };

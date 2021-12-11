@@ -10,9 +10,11 @@ module.exports = {
             colors: {
                 blue: '#3B7FE8',
                 green: '#1BCF92',
+                'blue-light': '#5296FF',
                 secondary: '#F5F3F0',
                 red: '#E55249',
-                yellow: '#FFC839'
+                yellow: '#FFC839',
+                footer: '#2F2F2F'
             },
             minWidth: {
                 '300': '300px',

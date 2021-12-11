@@ -15,7 +15,7 @@ const AddButton: FC<IBaseComponent & TAddButtonProps> = ({ className = '', onCli
     }
 
     return (
-        <motion.button aria-label="add to cart" className={`${className} w-12 h-12 z-50 rounded-full bg-blue text-white text-xl text-white`}
+        <motion.button aria-label="add to cart" className={`${className} w-12 h-12 z-50 rounded-full bg-blue text-white text-xl text-white hover:bg-blue-light`}
                        onClick={addButtonHandler}
                        whileHover={{ scale: 1.1 }}
                        whileTap={{ scale: 0.9 }}

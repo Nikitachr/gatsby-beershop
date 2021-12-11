@@ -9,6 +9,10 @@
     display: none;
 }
 
+.layout-height {
+    min-height: calc(100vh - 80px - 176px);
+}
+
 .no-drag {
     user-select: none;
     -webkit-user-drag: none;

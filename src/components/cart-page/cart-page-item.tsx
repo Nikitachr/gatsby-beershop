@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import IBaseComponent from "../../interfaces/base-component.interface";
 import { ICartProduct } from 'store/state';
 import CartCounter from 'components/shared/cart-counter';
+import {Link} from "gatsby";
 
 type TCartItemProps = {
     increment: (id: string) => void;
@@ -18,7 +19,7 @@ const CartPageItem: FC<IBaseComponent & ICartProduct & TCartItemProps> = ({ clas
         <div className={`${className} border-secondary border-2 rounded-3xl py-3 px-2 bg-white flex items-center gap-2`}>
             {gatsbyImage && <GatsbyImage image={gatsbyImage} objectFit="contain" className="min-w-28 w-28" alt="beer"/>}
             <div className="w-22">
-                <h3 className="text-md font-bold">{product.title}</h3>
+                <Link className="text-md font-bold block" to={`/product/${product.id}`}>{product.title}</Link>
                 <span className="text-md text-blue font-bold">{`$${product.price.toFixed(2)}`}</span>
             </div>
             <CartCounter className="ml-auto mr-5 transform scale-125"

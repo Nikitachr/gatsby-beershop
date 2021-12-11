@@ -5,6 +5,7 @@ import IBaseComponent from "../../interfaces/base-component.interface";
 import { ICartProduct } from 'store/state';
 import CartCounter from "./cart-counter";
 import priceFormatter from 'utils/price-format';
+import {Link} from "gatsby";
 
 type TCartItemProps = {
     increment: (id: string) => void;
@@ -19,7 +20,7 @@ const CartItem: FC<IBaseComponent & ICartProduct & TCartItemProps> = ({ classNam
         <div className={`${className} bg-white flex items-center gap-2`}>
             {gatsbyImage && <GatsbyImage image={gatsbyImage} objectFit="contain" className="w-20" alt="beer"/>}
             <div className="w-22">
-                <h3 className="text-md">{product.title}</h3>
+                <Link className="text-md block" to={`/product/${product.id}`}>{product.title}</Link>
                 <span className="text-md text-blue font-bold">{priceFormatter(product.price)}</span>
             </div>
             <CartCounter className="ml-auto mr-2"

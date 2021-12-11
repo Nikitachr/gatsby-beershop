@@ -55,7 +55,7 @@ const CartButton = () => {
                             </div>
                             <div className="flex justify-center gap-4">
                                 <button aria-label="checkout"
-                                        className="bg-blue rounded-full text-white font-semi-bold text-xl px-4 py-2">Checkout
+                                        className="bg-blue hover:bg-blue-light rounded-full text-white font-semi-bold text-xl px-4 py-2">Checkout
                                 </button>
                                 <Link to="/cart">
                                     <button aria-label="Go to cart"
