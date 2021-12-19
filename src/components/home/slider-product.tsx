@@ -1,7 +1,7 @@
 import React, { FC, memo, Ref } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import {isMobile} from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 
 import { IProduct } from 'interfaces/product.interface';
 import IBaseComponent from 'interfaces/base-component.interface';

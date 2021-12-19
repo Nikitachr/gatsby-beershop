@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'gatsby';
+import { isMobile } from 'react-device-detect';
 
 import CartIco from '../../assets/icons/cart.svg';
 import useHover from '../../hooks/use-hover';
@@ -8,7 +9,6 @@ import CartItem from '../shared/cart-item.ts';
 import useCartState from '../../hooks/use-cart-state';
 import calculateTotalPrice from 'utils/total-price';
 import priceFormatter from 'utils/price-format';
-
 
 const CartButton = () => {
     const [products, increment, decrement, remove] = useCartState();
@@ -22,7 +22,7 @@ const CartButton = () => {
                 </Link>
             </button>
             <AnimatePresence>
-                {isHover && products.length &&
+                {isHover && !isMobile && products.length &&
                 <motion.div className="absolute overflow-hidden z-10 right-0 top-6 pt-4 "
                             exit={{ height: 0 }}
                             animate={{

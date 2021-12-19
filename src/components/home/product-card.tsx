@@ -1,6 +1,7 @@
 import React, { FC, LegacyRef, memo } from 'react';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { AnimatePresence } from 'framer-motion'
+import { isMobile } from 'react-device-detect';
 
 import { IProduct } from 'interfaces/product.interface';
 import IBaseComponent from 'interfaces/base-component.interface';
@@ -22,7 +23,7 @@ const ProductCard: FC<IProduct & IBaseComponent & TAddToCard> = ({ className = '
                 <h2 className="font-bold text-md mt-4 w-56">{product.title}</h2>
                 <span className="font-bold text-blue text-md">{priceFormatter(product.price)}</span>
                 <AnimatePresence>
-                    {isHover && <AddButton onClick={() => addToCard(product, 1)} className="absolute inset-half"/>}
+                    {(isHover || isMobile) && <AddButton onClick={() => addToCard(product, 1)} className="absolute inset-half"/>}
                 </AnimatePresence>
             </div>
         </Link>

@@ -46,14 +46,14 @@ const Index = () => {
             <SEO title="Main page"/>
             <Layout>
                 <Slider className="w-full pt-14 pl-12 h-500 overflow-y-scroll no-scrollbar">
-                    {products.map(({ node }) => <SliderProduct key={node.id} {...node} addToCard={addToCart}/>)}
+                    {products.map(({ node }) => <SliderProduct className="no-highlights" key={node.id} {...node} addToCard={addToCart}/>)}
                 </Slider>
                 <section className="mt-12 pb-6 bg-secondary shadow-secondary">
                     <div className="max-w-screen-xl mx-auto px-6">
                         <h1 className="font-bold text-lg">BESTSELLERS</h1>
                         <div
                             className="grid py-4 gap-y-4 grid-cols-1-auto sm:grid-cols-2-auto md:grid-cols-3-auto lg:grid-cols-4-auto sm:justify-between justify-items-center sm:justify-items-start ">
-                            {products.map(({ node }) => <ProductCard key={node.id} addToCard={addToCart} {...node}/>)}
+                            {products.map(({ node }) => <ProductCard className="no-highlights" key={node.id} addToCard={addToCart} {...node}/>)}
                         </div>
                     </div>
                 </section>
