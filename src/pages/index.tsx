@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 
 import SEO from 'components/shared/seo';
@@ -37,6 +37,10 @@ const Index = () => {
     const products = query.allContentfulProducts.edges;
     const addToCart = useAddToCart();
 
+    useEffect(() => {
+        console.log(navigator.userAgent);
+    }, []);
+
     return (
         <>
             <SEO title="Main page"/>
@@ -44,7 +48,7 @@ const Index = () => {
                 <Slider className="w-full pt-14 pl-12 h-500 overflow-y-scroll no-scrollbar">
                     {products.map(({ node }) => <SliderProduct key={node.id} {...node} addToCard={addToCart}/>)}
                 </Slider>
-                <section className="mt-12 bg-secondary shadow-secondary">
+                <section className="mt-12 pb-6 bg-secondary shadow-secondary">
                     <div className="max-w-screen-xl mx-auto px-6">
                         <h1 className="font-bold text-lg">BESTSELLERS</h1>
                         <div

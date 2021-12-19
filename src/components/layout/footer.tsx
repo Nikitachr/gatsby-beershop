@@ -4,7 +4,7 @@ import {Link} from "gatsby";
 const Footer = () => {
     return (
         <div className="bg-footer">
-            <div className="max-w-screen-xl mx-auto px-6 py-8 text-white grid gap-4 grid-cols-2-auto md:grid-cols-4-auto">
+            <div className="max-w-screen-xl mx-auto px-6 py-8 text-white grid gap-4 sm:grid-cols-2-auto md:grid-cols-4-auto">
                 <Link className="self-center font-bold text-xl" to="/">BEERSHOP</Link>
                 <div className="grid gap-2">
                     <h3 className="mb-4 font-bold">Navigation</h3>

@@ -14,7 +14,7 @@ const Cart: FC = () => {
         <>
             <SEO title="Cart"/>
             <Layout>
-                <div className="max-w-screen-xl mx-auto px-6 pt-12">
+                <div className="max-w-screen-xl mx-auto p-6 pt-12">
                     {products.length &&
                         <>
                             <h1 className="font-bold text-2xl">Cart</h1>

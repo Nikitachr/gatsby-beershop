@@ -1,6 +1,7 @@
 import React, { FC, memo, Ref } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import {isMobile} from 'react-device-detect';
 
 import { IProduct } from 'interfaces/product.interface';
 import IBaseComponent from 'interfaces/base-component.interface';
@@ -36,12 +37,12 @@ const SliderProduct: FC<IProduct & IBaseComponent & TAddToCard> = ({ className =
                     {newImage && <GatsbyImage image={newImage} className="pointer-events-none h-72 w-72" alt="beer"/>}
                 </motion.div>
                 <AnimatePresence>
-                    {isHover &&
+                    {(isHover || isMobile) &&
                     <AddButton onClick={() => addToCard(product, 1)} className="-mt-12 absolute top-56"/>
                     }
                 </AnimatePresence>
                 <AnimatePresence>
-                    {isHover &&
+                    {(isHover || isMobile) &&
                     <motion.div initial={{ scale: 0.5, y: 20, opacity: 0 }}
                                 animate={{ scale: 1, y: 0, opacity: 1 }}
                                 exit={{ scale: 0.5, y: 0, opacity: 0 }}
